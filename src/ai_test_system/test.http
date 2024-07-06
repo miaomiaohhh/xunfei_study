@@ -1,0 +1,61 @@
+@basePath = http://127.0.0.1:5000/
+
+###
+POST {{basePath}}/get_subjects HTTP/1.1
+Content-Type: application/json
+
+{
+    "parent_subjects": ["物理","相对论"],
+    "aready_subjects": ["狭义相对论"]
+}
+
+###
+POST {{basePath}}/get_problems HTTP/1.1
+Content-Type: application/json
+
+{
+    "subjects": ["相对论","无机化学"],
+   	"time": 2,
+   	"min_difficulty": 3,
+   	"max_difficulty": 8,
+   	"type": ["single_choice", "judgement"],
+    "others": "希望能出一些计算量比较大的题目"
+}
+
+###
+POST {{basePath}}/get_evaluation HTTP/1.1
+Content-Type: application/json
+
+{
+    "json1":{
+    "problems": [
+        {
+            "type": "choice",
+            "problem": "在电磁感应现象中，以下哪些情况可以产生感应电流？",
+            "choices": ["移动磁铁", "改变线圈的匝数", "改变磁体的磁场强度", "旋转铜盘"],
+            "answer": [0, 2, 3],
+            "analysis": "根据法拉第电磁感应定律，只要通过导体的磁通量发生变化，就会在导体中产生感应电动势。"
+        },
+        {
+            "type": "completion",
+            "problem": ["一个面积为0.1m^2的线圈在均匀磁场中旋转90度，磁场强度为0.5T，计算感应电动势的大小：E = -NdΦ/dt = -___ V"],
+            "answer": ["0.05"],
+            "analysis": "根据法拉第电磁感应定律，感应电动势的大小等于磁通量的变化率。"
+        },
+        {
+            "type": "choice",
+            "problem": "关于楞次定律，下列说法正确的有哪些？",
+            "choices": ["感应电流的方向总是要阻碍引起它的变化", "感应电流产生的磁场总是与原磁场方向相同", "感应电流的大小与原磁场的变化速度成正比", "感应电流的磁场总是试图阻止任何磁场的变化"],
+            "answer": [0, 2],
+            "analysis": "楞次定律指出，感应电流的方向总是要对抗引起它的变化的原因，即反对其磁场变化的原因。"
+        }]
+    },
+    "json2":
+    {
+        "answers": [
+            [0,1, 2, 3],
+            ["0.1"],
+            [0, 2]
+        ]
+    }
+}

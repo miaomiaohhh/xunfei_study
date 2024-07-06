@@ -1,0 +1,7 @@
+// should be renamed to config.json
+{
+    //can get from https://console.xfyun.cn/services/bm35
+   "appid": "",
+   "api_secret": "",
+   "api_key": ""
+}
